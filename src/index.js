@@ -14,9 +14,26 @@ if (!('serviceWorker' in navigator)) {
 }
 
 const launch = (registration) => {
+    addButton()
+    
+    return console.log('Hello World!')
+
     if (registration) {
         console.log('this has been called after SW registration, in scope:', registration.scope)
     } else {
         console.log('somehow starting without any offline stuff - either result of missing ServiceWorker in navigator, or error in registration')
     }
+}
+
+const addButton = () => {
+    var button = document.createElement("button");
+    button.innerHTML = "Download instance.json";
+    button.addEventListener ("click", async function() {
+      
+      const res = await fetch('/instance.json')
+      const json = await res.json()
+      console.log('json', json)
+    });
+
+    document.body.append(button)
 }
