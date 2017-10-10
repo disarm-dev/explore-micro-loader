@@ -18,7 +18,6 @@ module.exports = { /* Do the usual webpack stuff. */
             inline: ['bundle.js']
         }),
         new CopyWebpackPlugin([
-            { from: './src/another.json' },
             { from: './src/instance.json' },
             { from: './src/dummy.js' },
         ]),
